@@ -263,8 +263,8 @@
 		deckshuffle(user)
 
 
-/obj/item/deck/proc/deckshuffle(mob/user)
-	if(cooldown < world.time - 1 SECONDS || !iscarbon(user) || user.incapacitated() || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+/obj/item/deck/proc/deckshuffle(mob/user = usr)
+	if(cooldown > world.time - 1 SECONDS || !iscarbon(user) || user.incapacitated() || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return
 
 	cards = shuffle(cards)
